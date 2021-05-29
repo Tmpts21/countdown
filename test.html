@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> 
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head> 
+<style>    
+body {   
+    background-color: black;
+    color: #d2a057;
+}  
+
+p{
+    font-family: 'Orbitron', sans-serif;  
+    font-size: 55px;  
+}
+small 
+{  
+    font-size: 15px;   
+    font-family: 'Orbitron', sans-serif;  
+} 
+.fixed {  
+    position: fixed; 
+    right: 0; 
+    top: 0;    
+    padding-right: 20px;
+}
+
+.image{     
+    background-image: url("");   
+    height:500px;   
+    width: 100%;
+    background-image:    url("2222222222222222.png");    
+    /*background-size: cover;*/
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right right ;  
+        /* overflow-y: hidden ! important;
+    overflow-x: hidden ! important; */
+}  
+
+.test{
+    text-align: center; 
+    align-items: center; 
+    display: table-cell;
+    vertical-align:middle;
+}   
+
+@media screen and (min-width: 800px) {    
+    .pad{padding-top: 250px;} 
+    .fi { 
+        padding-right: 150px; 
+        padding-top: 20px; 
+    }
+} 
+
+
+
+</style>
+<body>     
+    <div class="container">     
+
+    <!-- Button trigger modal -->
+        <a type="button" class="fixed fi float-end" data-bs-toggle="modal" data-bs-target="#exampleModal" > <i class="fa fa-question-circle float-end" style="color : #d2a056; font-size: 35px; padding-top: 10px;"></i></a>    
+
+        <div class="row text-center">        
+            <div class="col-lg  ">     
+                <br> <br> <br>  
+            <div class="image"> 
+                <!-- Display the countdown timer in an element --> 
+            </div>
+            </div>  
+            <div class="col-lg ">       
+                <p id="demo" class="pad" ></p>            
+                <small>Time until Monday, 31 May 2021, 23:00:00 (Manila time)</small>
+            </div>    
+        </div>  
+    </div>  
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >  
+  <div class="modal-dialog">
+    <div class="modal-content" style="background-color: black;"> 
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">What is Project Eros ? </h5> 
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">  
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorum neque magni, fugiat iure sint error recusandae? Minima, animi deserunt. Explicabo corporis nihil possimus cumque sapiente dolores molestiae at nam optio! 
+      </div>
+      <div class="modal-footer">
+        <a type="button" data-bs-dismiss="modal" style="color: #d2a056;">Close</a>   
+      </div>
+    </div>
+  </div>
+</div>
+ 
+<script> 
+ 
+// Set the date we're counting down to
+//var countDownDate = new Date("Jan 5, 2022 15:37:25").getTime();  
+
+var countDownDate = new Date("May 31, 2021 23:00:00").getTime();   
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("demo").innerHTML = days + "d  " + hours + "h  "
+  + minutes + "m " + seconds + "s " ;
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>  
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    
+</body>
+</html>
