@@ -40,8 +40,6 @@ small
     background-size: contain;
     background-repeat: no-repeat;
     background-position: right right ;  
-        /* overflow-y: hidden ! important;
-    overflow-x: hidden ! important; */
 }  
 
 .test{
@@ -52,14 +50,14 @@ small
 }   
 
 @media screen and (min-width: 800px) {    
-    .pad{padding-top: 250px;} 
+    .pad{padding-top: 150px;} 
     .fi { 
         padding-right: 150px; 
         padding-top: 20px; 
-    }
+    }  
+    .pad1{padding-top: 250px;}   
+
 } 
-
-
 
 </style>
 <body>     
@@ -103,9 +101,9 @@ small
 <script> 
  
 // Set the date we're counting down to
-//var countDownDate = new Date("Jan 5, 2022 15:37:25").getTime();  
+var countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();   
 
-var countDownDate = new Date("May 31, 2021 23:00:00").getTime();   
+// var countDownDate = new Date("May 31, 2021 23:00:00").getTime();   
 
 // Update the count down every 1 second
 var x = setInterval(function() {
@@ -124,12 +122,18 @@ var x = setInterval(function() {
 
   // Display the result in the element with id="demo"
   document.getElementById("demo").innerHTML = days + "d  " + hours + "h  "
-  + minutes + "m " + seconds + "s " ;
+  + minutes + "m " + seconds + "s " ;   
+
+  document.getElementById("demo").classList.add("pad1");
+
 
   // If the count down is finished, write some text
   if (distance < 0) {
     clearInterval(x);
-    document.getElementById("demo").innerHTML = "We have lift off. Eros is now officially open for all!"; 
+    document.getElementById("demo").innerHTML = "We have lift off. Eros is now officially open for all!";  
+
+    document.getElementById("demo").classList.remove("pad1");  
+    document.getElementById("demo").classList.add("pad");  
   }
 }, 1000);
 </script>  
