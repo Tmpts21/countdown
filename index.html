@@ -8,7 +8,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"> 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">   
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
 </head> 
 <style>     
 
@@ -37,12 +39,25 @@ small
 .image{     
     height:500px;   
     width: 100%;
-    background-image:    url("./images/2222222222222222.jpg");     
-    /*background-size: cover;*/
+    /*background-size: cover;*/ 
     background-size: contain;
+    background-image:    url("./images/2222222222222222.jpg");       
     background-repeat: no-repeat;
     background-position: right right ;  
-}  
+}    
+
+
+.img{     
+    height:500px;   
+    width: 100%;
+    /*background-size: cover;*/ 
+    background-size: contain;
+    background-image:    url("./images/123.png");      
+    background-repeat: no-repeat;
+    background-position: right right ;  
+}   
+
+
 
 .test{
     text-align: center; 
@@ -63,26 +78,26 @@ small
 
 </style>
 <body>     
-    <div class="container">      
+    <div class="container" >       
         <br> <br>  
         
-    <!-- Button trigger modal -->
-        <a type="button" class="fixed fi float-end" data-bs-toggle="modal" data-bs-target="#exampleModal" > <i class="fa fa-question-circle float-end" style="color : #d2a056; font-size: 35px; padding-top: 10px;"></i></a>    
+        <!-- Button trigger modal -->
+        <!-- <a type="button" class="fixed fi float-end" data-bs-toggle="modal" data-bs-target="#exampleModal" > <i class="fa fa-question-circle float-end" style="color : #d2a056; font-size: 35px; padding-top: 10px;"></i></a>     -->
 
         <div class="row text-center">        
-            <div class="col-lg  ">     
+            <div class="col-lg" >      
                 <br> <br> <br>  
-            <div class="image"> 
-                <!-- Display the countdown timer in an element --> 
+            <div   data-aos="fade-up" data-aos-delay="500" class="image" id="image">       
+                <!-- Display the countdown timer in an element -->    
             </div>
             </div>  
             <div class="col-lg ">       
-                <p id="demo" class="pad" ></p>            
+                <p id="demo" class="pad"  data-aos="fade-left" data-aos-delay="1000" ></p>             
             </div>    
         </div>  
     </div>  
 
-<!-- Modal -->
+<!-- Modal
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" >  
   <div class="modal-dialog">
     <div class="modal-content" style="background-color: black;"> 
@@ -98,17 +113,22 @@ small
       </div>
     </div>
   </div>
-</div>
+</div> -->
  
-<script> 
+<script>    
+
  
 // Set the date we're counting down to
 // var countDownDate = new Date("Jan 5, 2021 15:37:25").getTime();   
 
-var countDownDate = new Date("May 31, 2021 23:00:00").getTime();   
+// var countDownDate = new Date("May 31, 2021 23:00:00").getTime();    
+
+var countDownDate = new Date("May 31, 2021 03:12:00").getTime();    
+
 
 // Update the count down every 1 second
-var x = setInterval(function() {
+var x = setInterval(function() { 
+  var isLaunched = false ; 
 
   // Get today's date and time
   var now = new Date().getTime();
@@ -126,21 +146,43 @@ var x = setInterval(function() {
   document.getElementById("demo").innerHTML = days + "d  " + hours + "h  "
   + minutes + "m " + seconds + "s " ;   
 
-  document.getElementById("demo").classList.add("pad1");
+  // If the count down is finished, write some text  
+
+   const reloadUsingLocationHash = () => {
+      window.location.hash = "reload";
+    }
+
+  if (distance < 0) { 
+    clearInterval(x);         
+
+    window.onload = reloadUsingLocationHash();
 
 
-  // If the count down is finished, write some text
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo").innerHTML = "We have lift off. Eros is now officially open for all!";  
 
-    document.getElementById("demo").classList.remove("pad1");  
+
+    document.getElementById("demo").innerHTML = "";    
+    document.getElementById("demo").innerHTML = "We have lift off. Eros is now officially open for all!";   
+
+    document.getElementById("demo").classList.remove("pad1");   
     document.getElementById("demo").classList.add("pad");  
-  }
-}, 1000);
-</script>  
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    document.getElementById("image").classList.remove("image");       
+    document.getElementById("image").classList.add("img");    
+  
+  }
+}); 
+
+</script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>   
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+
+<script>
+    AOS.init();
+</script>
+
     
 </body>
 </html>
