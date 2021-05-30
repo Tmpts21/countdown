@@ -147,15 +147,9 @@ var x = setInterval(function() {
   + minutes + "m " + seconds + "s " ;   
 
   // If the count down is finished, write some text  
-
-   const reloadUsingLocationHash = () => {
-      window.location.hash = "reload";
-    }
-
   if (distance < 0) { 
     clearInterval(x);         
 
-    // window.onload = reloadUsingLocationHash(); 
 
     document.getElementById("demo").classList.remove("pad1");   
     document.getElementById("demo").classList.add("pad");  
